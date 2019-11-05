@@ -1,6 +1,14 @@
 # PHASE 2
 def convert_to_int(str)
-  Integer(str)
+  begin
+    int = Integer(str)
+  rescue ArgumentError
+    puts "can't be an Integer"
+  ensure
+    int || = nil
+  end
+
+  int
 end
 
 # PHASE 3
