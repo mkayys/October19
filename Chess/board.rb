@@ -1,9 +1,10 @@
 require_relative 'piece'
 
 class Board
-
+    attr_accessor :grid
     def initialize
         @grid = Array.new(8) { Array.new(8, nil) }
+        place_pieces
     end
 
     def [](pos)
@@ -17,11 +18,10 @@ class Board
     end
     
     def place_pieces
-
         @grid.each_with_index do |row, i|
             row.each_with_index do |pos, j|
                 if (i == 0) || (i == 1) || (i == 6) || (i == 7)
-                    pos = Piece.new
+                    self[[i, j]] = Piece.new
                 end
             end
         end
