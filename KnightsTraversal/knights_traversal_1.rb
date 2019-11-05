@@ -40,4 +40,8 @@ class KnightPathFinder
 
         new_moves
     end
+
+    def build_move_tree
+        # breath-first approach
+    end
 end
