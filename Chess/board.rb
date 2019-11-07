@@ -29,7 +29,7 @@ class Board
     end
 
     def move_piece(start_pos, end_pos)
-        if self[start_pos].nil?
+        if self.empty?(start_pos)
             raise "THERE IS NO PIECCCEE"
         end
 
@@ -53,6 +53,11 @@ class Board
         true
         # pos.all? { |coord| coord.between?(0,7) }
         # between is inclusive
+    end
+
+    def empty?(pos)
+        # will need to check if it's empty later
+        self[pos].nil?
     end
 
 end

@@ -30,6 +30,24 @@ module Slideable
     def grow_moves(dx, dy)
         s_x, s_y = pos
 
-        
+         # cur_x, cur_y = pos
+    # moves = []
+    # loop do
+    #   cur_x, cur_y = cur_x + dx, cur_y + dy
+    #   pos = [cur_x, cur_y]
+
+    #   break unless board.valid_pos?(pos)
+
+    #   if board.empty?(pos)
+    #     moves << pos
+    #   else
+    #     # can take an opponent's piece
+    #     moves << pos if board[pos].color != color
+
+    #     # can't move past blocking piece
+    #     break
+    #   end
+    # end
+    # moves
     end
 end
