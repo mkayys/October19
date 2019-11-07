@@ -1,6 +1,8 @@
 require 'sloth' # automatically searches lib folder for this file
 # require 'rspec'
 
+# require 'food'
+
 describe Sloth do
 
     subject(:sloth) { Sloth.new('Gerald') } #sloth available in the nested describe blocks
@@ -25,9 +27,33 @@ describe Sloth do
     end
 
     describe '#eat' do
-        it 'adds the food to the food array' do
-            sloth.eat('chocolate chip potatoes')
-            expect(sloth.food).to eq(['chocolate chip potatoes'])
+        # it 'adds the food to the food array' do
+        #     sloth.eat('chocolate chip potatoes')
+        #     expect(sloth.food).to eq(['chocolate chip potatoes'])
+        # end
+
+
+        # THIS IS AN INTEGRATION TEST
+        # it "adds a food instance to the food array" do
+        #     pizza = Food.new('pizza') REAL FOOD OBJECT
+        #     sloth.eat(pizza)
+        #     expect(sloth.food[0]).to be(pizza)
+        # end
+
+
+        # before(:each) do
+        #     allow(pizza).to receive(:bitten)
+        # end
+
+        # let(:pizza) { double('pizza', bitten: '') }
+
+        let(:pizza) { double('pizza') } # fake Food object, this is good for unit test
+        it "adds a food instance to the food array" do
+            # pizza = Food.new('pizza')
+            allow(pizza).to receive(:bitten)
+
+            sloth.eat(pizza)
+            expect(sloth.food).to include(pizza)
         end
 
         it 'returns the food eatten' do
@@ -82,4 +108,12 @@ describe Sloth do
             end
         end
     end
+
+    # CAN'T TEST PRIVATE METHODS
+
+    # describe '#secret_sloth' do
+    #     it 'returns shh' do
+    #         expect(sloth.secret_sloth).to eq('Shhh')
+    #     end
+    # end
 end

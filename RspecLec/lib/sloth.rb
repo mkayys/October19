@@ -18,6 +18,7 @@ class Sloth
     end
 
     def eat(food)
+        food.bitten
         @food << food
         #food << food
         food
@@ -30,5 +31,10 @@ class Sloth
 
     def drink(type, amount)
         @drinks[type] += amount
+    end
+
+    private
+    def secret_sloth
+        "Shhh"
     end
 end
