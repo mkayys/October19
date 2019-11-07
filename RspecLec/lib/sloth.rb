@@ -25,5 +25,6 @@ class Sloth
 
     def run(direction)
         raise ArgumentError if !DIRECTIONS.include?(direction)
+        "I am climibing in #{direction}"
     end
 end

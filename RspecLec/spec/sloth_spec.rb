@@ -34,4 +34,19 @@ describe Sloth do
             expect(sloth.eat('tuna')).to eq('tuna')
         end
     end
+
+    describe '#run' do
+        context 'when an invalid direction is given' do
+            it 'raises an ArguemtnError' do
+                expect{ sloth.run('narnia') }.to raise_error(ArgumentError)
+                # expect{ sloth.run('narnia') }.to raise_error (works but then gives you a warning)
+            end
+        end
+
+        context 'when a valid direction is given' do
+            it 'returns the direction' do
+                expect(sloth.run('south')).to include('south')
+            end
+        end
+    end
 end
