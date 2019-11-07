@@ -52,8 +52,14 @@ describe Sloth do
     end
 
     describe '#drink' do
+        # call methods here, don't do assignment
+        # functionality you want to run before each it block goes here
+
+        # subject => instance of an object
+        # before(:each) => an action before the it block that we want done
+
+        # order of before(:each) doesn't matter
         before(:each) do
-            # functionality you want to run before each it block goes here
             sloth.drink('beer', 99)
         end
 
