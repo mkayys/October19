@@ -15,9 +15,9 @@ module Slideable
     ]
 
     def moves
-
+        moves = []
         move_dirs.each do |dir|
-
+            moves.concat(grow_moves(dir[0], dir[1]))
         end
 
     end
