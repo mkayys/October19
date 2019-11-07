@@ -7,3 +7,7 @@ require 'algorithms'
 #     end
 # end
 
+describe 'my_uniq' do
+    let(:array) { [1, 2, 1, 3, 3] }
+    
+end
