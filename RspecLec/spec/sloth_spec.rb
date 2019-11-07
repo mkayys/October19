@@ -37,8 +37,9 @@ describe Sloth do
 
     describe '#run' do
         context 'when an invalid direction is given' do
-            it 'raises an ArguemtnError' do
-                expect{ sloth.run('narnia') }.to raise_error(ArgumentError)
+            it 'raises an ArgumentError' do
+                # it has to be in a block because otherwise it executes and evaluates to the error
+                expect { sloth.run('narnia') }.to raise_error(ArgumentError)
                 # expect{ sloth.run('narnia') }.to raise_error (works but then gives you a warning)
             end
         end
@@ -46,6 +47,32 @@ describe Sloth do
         context 'when a valid direction is given' do
             it 'returns the direction' do
                 expect(sloth.run('south')).to include('south')
+            end
+        end
+    end
+
+    describe '#drink' do
+        before(:each) do
+            # functionality you want to run before each it block goes here
+            sloth.drink('beer', 99)
+        end
+
+        context 'without previous drinks' do
+            it 'should add a key-value to the drinks hash' do
+                # sloth.drink('beer', 99)
+                expect(sloth.drinks['beer']).to eq(99)
+            end
+        end
+
+        context 'with multiple drinks' do
+            it 'should not confuse the amounts of two different drinks' do
+                # sloth.drink('beer', 99)
+                sloth.drink('OJ', 3)
+                expect(sloth.drinks.keys.length).to eq 2
+                # parenthesis is not required in ruby
+                expect(sloth.drinks).to have_key('OJ')
+                expect(sloth.drinks['OJ']).to eq(3)
+                expect(sloth.drinks['beer']).to eq 99
             end
         end
     end

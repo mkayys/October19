@@ -14,7 +14,7 @@ class Sloth
     def initialize(name)
         @name = name
         @food = []
-        @drinks = {}
+        @drinks = Hash.new(0)
     end
 
     def eat(food)
@@ -26,5 +26,9 @@ class Sloth
     def run(direction)
         raise ArgumentError if !DIRECTIONS.include?(direction)
         "I am climibing in #{direction}"
+    end
+
+    def drink(type, amount)
+        @drinks[type] += amount
     end
 end
