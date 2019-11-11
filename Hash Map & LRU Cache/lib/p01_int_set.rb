@@ -1,19 +1,25 @@
 class MaxIntSet
   def initialize(max)
+    @store = Array.new(max, false)
   end
 
   def insert(num)
+    
+    return true
   end
 
   def remove(num)
   end
 
   def include?(num)
+    return true if self.insert(num)
+    false
   end
 
   private
 
   def is_valid?(num)
+
   end
 
   def validate!(num)
