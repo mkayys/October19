@@ -111,59 +111,9 @@ def travoltas_busiest_years
 end
 
 def andrews_films_and_leads
-  # List the film title and the leading actor for all of the films 'Julie
-  # Andrews' played in.
-  # execute(<<-SQL)
-  #   SELECT
-  #     movies.title, actors.name
-  #   FROM
-  #     movies
-  #   JOIN
-  #     castings ON castings.movie_id = movies.id
-  #   JOIN
-  #     actors ON castings.actor_id = actors.id
-  #   WHERE
-  #     castings.ord = 1 AND movies.title IN (
-  #       SELECT
-  #         movies.title
-  #       FROM
-  #         movies
-  #       JOIN
-  #         castings ON castings.movie_id = movies.id
-  #       JOIN
-  #         actors ON castings.actor_id = actors.id
-  #       WHERE
-  #         actors.name = 'Julie Andrews'
-  #     )
-  # SQL
+  # List the film title and the leading actor for all of the films
+  # 'Julie Andrews' played in.
 
-  exectute(<<-SQL)
-    SELECT
-    FROM
-    
-  SQL
-end
-
-def prolific_actors
-  # Obtain a list in alphabetical order of actors who've had at least 15
-  # starring roles.
-  execute(<<-SQL)
-    SELECT
-      actors.name
-    FROM
-      actors
-    JOIN
-      castings ON castings.actor_id = actors.id
-    WHERE
-      castings.ord = 1
-    GROUP BY
-      actors.name
-    HAVING
-      COUNT(castings.ord) >= 15
-    ORDER BY
-      actors.name
-    
-  SQL
 end
 
 def films_by_cast_size
