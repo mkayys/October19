@@ -11,3 +11,10 @@ class Child < Parent
 end
 
 Child.new.say('Hi Rubyist!') # => "Hi Rubyist!"
+
+class Animal
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+end
