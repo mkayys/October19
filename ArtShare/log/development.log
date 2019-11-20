@@ -143,3 +143,116 @@ Processing by UsersController#index as */*
 Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 2.0ms)
 
 
+Started POST "/users?user[name]=%27christine%27&user[email]=" for ::1 at 2019-11-20 12:07:45 -0800
+  [1m[35m (57.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mkim/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"'christine'", "email"=>""}}
+  [1m[35m (9.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (59.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 717ms (ActiveRecord: 362.9ms)
+
+
+  
+NameError (undefined local variable or method `unprocessable_entity' for #<UsersController:0x00007f908fdcd030>):
+  
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users?user[name]=christine&user[email]=" for ::1 at 2019-11-20 12:08:09 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"christine", "email"=>""}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (12.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 255ms (ActiveRecord: 13.3ms)
+
+
+  
+NameError (undefined local variable or method `unprocessable_entity' for #<UsersController:0x00007f909039c718>):
+  
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users?user[name]=christine&user[email]=" for ::1 at 2019-11-20 12:09:14 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"christine", "email"=>""}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 292ms (ActiveRecord: 2.6ms)
+
+
+  
+NameError (undefined local variable or method `unprocessable_entity' for #<UsersController:0x00007f908ef85ba8>):
+  
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users?user[name]=christine&user[email]=c@aa.io" for ::1 at 2019-11-20 12:09:18 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"christine", "email"=>"c@aa.io"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (3.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "c@aa.io"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (6.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 254ms (ActiveRecord: 10.1ms)
+
+
+  
+NameError (undefined local variable or method `unprocessable_entity' for #<UsersController:0x00007f9090554f88>):
+  
+app/controllers/users_controller.rb:17:in `create'
+Started GET "/users" for ::1 at 2019-11-20 12:09:48 -0800
+Processing by UsersController#index as */*
+  [1m[36mUser Load (14.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 41ms (Views: 25.8ms | ActiveRecord: 14.0ms)
+
+
+Started POST "/users?user[name]=christine&user[email]=" for ::1 at 2019-11-20 12:10:05 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"christine", "email"=>""}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (3.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 4.6ms)
+
+
+  
+NameError (undefined local variable or method `unprocessable_entity' for #<UsersController:0x00007f908f33bb58>):
+  
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users?user[name]=christine&user[email]=" for ::1 at 2019-11-20 12:10:36 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"christine", "email"=>""}}
+  [1m[35m (2.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (5.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (4.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 422 Unprocessable Entity in 50ms (Views: 0.2ms | ActiveRecord: 22.2ms)
+
+
+Started POST "/users?user[email]=c@aa.io&user[name]=" for ::1 at 2019-11-20 12:10:56 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"c@aa.io", "name"=>""}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "c@aa.io"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 422 Unprocessable Entity in 12ms (Views: 0.3ms | ActiveRecord: 2.8ms)
+
+
