@@ -54,3 +54,14 @@ input[type=password]:hover {
     cursor: pointer;
     background-color: lightcoral;
 }
+
+
+.user-profile {
+    height: 100%;
+    width: 100%;
+    background-image: url(headphones.jpeg);
+    background-repeat: no-repeat;
+    color: whitesmoke;
+    font-family: 'Calistoga', cursive;
+    font-size: 50px;
+}

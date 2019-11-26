@@ -1,0 +1,15 @@
+<div class="band-list">
+
+    <div class="band-list-title">List of All Bands!</div>
+    <ul>
+    <div><% @bands.each do |band| %>
+       
+       <li> <%= band.name %> </li>
+        <% end %>
+
+        <br>
+
+        <a href="<%= new_band_url %>">Add a band</a>
+    </div>
+    </ul>
+</div>

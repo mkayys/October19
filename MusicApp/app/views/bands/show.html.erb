@@ -1,0 +1,22 @@
+<div class="band-show">
+
+    <div class="band-show-title">Here's the Band you've chosen</div>
+    <ul>
+    <div>
+        <br>
+       <li> <%= @band.name %> </li>   
+       <br>
+       <a href="<%= edit_band_url(@band.id) %>">Edit this band</a>
+       <br>
+       <form action="<%= band_url(@band.id) %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+
+            <input type="submit" value="DELETE">
+       </form>
+
+
+        <br>
+        <a href="<%= bands_url %>">Go back to the List</a>
+    </div>
+    </ul>
+</div>
