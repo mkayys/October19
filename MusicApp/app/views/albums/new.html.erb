@@ -1,0 +1,16 @@
+<h1>Add a Album</h1>
+
+<form action="<%= albums_url %>" method="post">
+
+    <input type="hidden" name="album[band_id]" value="<%= @band.id %>">
+
+    <label>Title:
+        <input type="text" name="album[title]" >
+    </label>
+
+    <label>Year:
+        <input type="text" name="album[year]" >
+    </label>
+
+    <input type="submit" value="Add an album">
+</form>
