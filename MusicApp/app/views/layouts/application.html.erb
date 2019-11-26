@@ -5,11 +5,27 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="navbar">
+      <% if current_user %>
+        <h1>Welcome, <%= current_user.email %></h1>
+        <form action="<%= session_url %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+
+          <input type="submit" value="Bye :(">
+        </form>
+      <% else %>
+        <a href="<%= new_session_url %>">Sign In</a>
+        <a href="<%= new_user_url %>">Join</a>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>

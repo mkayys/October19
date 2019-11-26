@@ -1,19 +1,30 @@
-<h1>Sign Up</h1>
 
-<form action="<%= users_url %>" method="post">
-    <label>Email:
-        <input type="text" name="user[email]" value="<%= @user.email %>">
-    </label>
+<div class="sign-up">
 
-    <br>
-    <br>
+    <div class="form-and-title">
 
-    <label>Password:
-        <input type="password" name="user[password]">
-    </label>
+        <div class="sign-up-title">Sign Up</div>
 
-    <br>
-    <br>
+        <br>
+        <div class="sign-up-form">
+            <form action="<%= users_url %>" method="post">
+                <label>Email:
+                    <input type="text" name="user[email]" value="<%= @user.email %>">
+                </label>
 
-    <input type="submit" value="Sign UP!">
-</form>
+                <br>
+                <br>
+
+                <label>Password:
+                    <input type="password" name="user[password]">
+                </label>
+
+                <br>
+                <br>
+
+                <input type="submit" value="Sign UP!">
+            </form>
+        </div>
+    </div>
+
+</div>

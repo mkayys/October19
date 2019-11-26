@@ -1,19 +1,29 @@
-<h1>Sign In</h1>
 
-<form action="<%= session_url %>" method="post">
-    <label>Email:
-        <input type="text" name="user[email]" value="<%= @user.email %>">
-    </label>
+<div class="sign-in">
 
-    <br>
-    <br>
+    <div class="form-and-title">
+        <div class="sign-in-title">Sign In</div>
+        <br>
 
-    <label>Password:
-        <input type="password" name="user[password]">
-    </label>
+        <div class="sign-in-form">
+            <form action="<%= session_url %>" method="post">
+                <label>Email:
+                    <input type="text" name="user[email]">
+                </label>
 
-    <br>
-    <br>
+                <br>
+                <br>
 
-    <input type="submit" value="Sign IN!">
-</form>
+                <label>Password:
+                    <input type="password" name="user[password]">
+                </label>
+
+                <br>
+                <br>
+
+                <input type="submit" value="Sign IN!">
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
