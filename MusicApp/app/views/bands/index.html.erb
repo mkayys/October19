@@ -4,7 +4,7 @@
     <ul>
     <div><% @bands.each do |band| %>
        
-       <li> <%= band.name %> </li>
+       <li><a href="<%= band_url(band.id) %>"><%= band.name %> </a> </li>
         <% end %>
 
         <br>
