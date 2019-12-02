@@ -5,7 +5,8 @@
 <% @subs.each do |sub| %>
     <ul>
         <li>Title: <%= sub.title %></li>
-        <li>Description<%= sub.description %></li>
+        <li>Description: <%= sub.description %></li>
+        <a href="<%= sub_url(sub.id) %>">See this sub!</a>
         <br>
     </ul>
 <% end %>
