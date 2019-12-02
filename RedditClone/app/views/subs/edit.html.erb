@@ -1,6 +1,7 @@
-<h1>Create a Sub</h1>
+<h1>Edit Sub</h1>
 
-<form action="<%= subs_url %>" method="post">
+<form action="<%= sub_url(@sub.id) %>" method="post">
+    <input type="hidden" name="_method" value="patch">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
     <label>Title:
@@ -11,6 +12,6 @@
         <textarea name="sub[description]"><%= @sub.description %></textarea>
     </label>
 
-    <input type="submit" value="Create My Sub">
+    <input type="submit" value="Update My Sub">
 
 </form>
