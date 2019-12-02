@@ -9,16 +9,19 @@
 <ul>
     <li>Title: <%= @sub.title %></li>
     <li>Description: <%= @sub.description %></li>
-    <form action="<%= sub_url(@sub.id) %>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="submit" value="Delete this!">
-    </form>
+    <% if @sub.moderator_id == current_user.id %>
+        <form action="<%= sub_url(@sub.id) %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="submit" value="Delete this!">
+        </form>
+    <% end %>
 </ul>
 
 <br>
-
-<a href="<%= edit_sub_url %>">Edit this sub</a>
+<% if @sub.moderator_id == current_user.id %>
+    <a href="<%= edit_sub_url %>">Edit this sub</a>
+<% end %>
 
 <br>
 <h3>Create a Post for this sub!</h3>
@@ -48,12 +51,16 @@
         <li>Title: <%= post.title %></li>
         <li>Url: <%= post.url %></li>
         <li>Content: <%= post.content %></li>
-        <form action="<%= post_url(post.id) %>" method="post">
-            <input type="hidden" name="_method" value="delete">
-            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-            <input type="submit" value="Bye Bye!">
-        </form>
-        <li><a href="<%= edit_post_url %>">Edit this post</a></li>
+        
+        <% if post.author_id == current_user.id %>
+            <form action="<%= post_url(post.id) %>" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="submit" value="Bye Bye!">
+            </form>
+            <br>
+            <a href="<%= edit_post_url(post.id) %>">Edit this post ^</a>
+        <% end %>
     </ul>
 <% end %>
 

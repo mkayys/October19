@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+    before_action :require_login, only: [:edit, :update]
+
     def create
         @post = Post.new(post_params)
         @post.author_id = current_user.id
@@ -22,6 +24,13 @@ class PostsController < ApplicationController
     end
 
     def update
+        @post = Post.find(params[:id])
+        if @post.update(post_params)
+            redirect_to sub_url(@post.sub_id)
+        else
+            flash.now[:errors] = @post.errors.full_messages
+            render :edit
+        end
     end
 
     def destroy
