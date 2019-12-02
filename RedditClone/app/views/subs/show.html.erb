@@ -20,4 +20,40 @@
 
 <a href="<%= edit_sub_url %>">Edit this sub</a>
 
+<br>
+<h3>Create a Post for this sub!</h3>
+<form action="<%= posts_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <label>Title:
+        <input type="text" name="post[title]">
+    </label>
+
+    <label>Url:
+        <input type="text" name="post[url]">
+    </label>
+
+    <label>Content:
+        <textarea name="post[content]"></textarea>
+    </label>
+    <input type="hidden" name="post[sub_id]" value="<%= @sub.id %>">
+
+    <input type="submit" value="Create Post">
+</form>
+
+<br>
+<h2>The posts for this sub:</h2>
+<% @posts.reverse.each do |post| %>
+    <ul>
+        <li>Title: <%= post.title %></li>
+        <li>Url: <%= post.url %></li>
+        <li>Content: <%= post.content %></li>
+        <form action="<%= post_url(post.id) %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="submit" value="Bye Bye!">
+        </form>
+        <li><a href="<%= edit_post_url %>">Edit this post</a></li>
+    </ul>
+<% end %>
 
