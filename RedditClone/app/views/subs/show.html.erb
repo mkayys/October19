@@ -1,6 +1,23 @@
 <h1>Here's the Sub you're viewing</h1>
 
+<br>
+
+<a href="<%= subs_url %>">Go back to the list of subs!</a>
+<br>
+<br>
+
 <ul>
-    <li><%= @sub.title %></li>
-    <li><%= @sub.description %></li>
+    <li>Title: <%= @sub.title %></li>
+    <li>Description: <%= @sub.description %></li>
+    <form action="<%= sub_url(@sub.id) %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="submit" value="Delete this!">
+    </form>
 </ul>
+
+<br>
+
+<a href="<%= edit_sub_url %>">Edit this sub</a>
+
+
