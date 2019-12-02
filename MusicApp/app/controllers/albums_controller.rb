@@ -10,10 +10,16 @@ class AlbumsController < ApplicationController
     def create
         @album = Album.new(album_params)
         @album.year = @album.year.to_i
+        if @album.live == "Yes"
+            @album.live = true
+        else
+            @album.live = false
+        end
 
         if @album.save
             redirect_to album_url(@album.id)
         else
+            debugger
             flash.now[:errors] = @album.errors.full_messages
             render :new
         end
