@@ -203,3 +203,40 @@ Migrating to CreateSubs (20191202173147)
   ↳ bin/rails:9
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+Started GET "/subs" for ::1 at 2019-12-02 09:55:49 -0800
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mkim/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by SubsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected ':', expecting keyword_end
+        class_name: :User
+                  ^:
+  app/models/sub.rb:7:in `'
+  app/controllers/subs_controller.rb:6:in `index'
+
+Started POST "/__better_errors/fc4748b44f12dcc2/variables" for ::1 at 2019-12-02 09:55:49 -0800
+Started GET "/subs" for ::1 at 2019-12-02 09:56:04 -0800
+Processing by SubsController#index as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected ':', expecting keyword_end
+        class_name: :User
+                  ^:
+  app/models/sub.rb:7:in `'
+  app/controllers/subs_controller.rb:6:in `index'
+
+Started POST "/__better_errors/bd0782d12b9e8f3a/variables" for ::1 at 2019-12-02 09:56:05 -0800
+Started GET "/subs" for ::1 at 2019-12-02 09:56:07 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (14.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 157ms (Views: 126.2ms | ActiveRecord: 19.2ms)
+
+
