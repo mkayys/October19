@@ -22,5 +22,7 @@ class Post < ApplicationRecord
         foreign_key: :author_id,
         class_name: :User
 
+    has_many :post_subs,
+        inverse_of: :post
     
 end
