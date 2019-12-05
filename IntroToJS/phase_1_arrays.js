@@ -22,4 +22,14 @@ Array.prototype.twoSum = function() {
     return sums;
 }
 
-Array.proto
+Array.prototype.transpose = function() {
+    let transposed = [];
+
+    for (let i=0; i < this.length; i++) {
+        for (let j=0; j < this.length; j++) {
+            
+        }
+    }
+
+    return transposed;
+}
