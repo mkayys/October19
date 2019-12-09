@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Bird; });\nclass Bird {\n    constructor(dimensions) {\n        this.velocity = 0;\n        this.dimensions = dimensions;\n        this.pos = { width: Math.floor(this.dimensions.width / 3), height: Math.floor(this.dimensions.height / 2) }\n    }\n\n    animate(ctx) {\n        this.drawBird(ctx);\n    }\n\n    drawBird(ctx) {\n        ctx.fillStyle = \"yellow\";\n        ctx.fillRect(this.pos.width, this.pos.height, 40, 30);\n    }\n\n}\n\n//# sourceURL=webpack:///./src/bird.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Bird; });\nclass Bird {\n    constructor(dimensions) {\n        this.velocity = 0;\n        this.dimensions = dimensions;\n        this.pos = { width: Math.floor(this.dimensions.width / 3), height: Math.floor(this.dimensions.height / 2) };\n        this.y = this.pos.height;\n        this.x = this.pos.width;\n    }\n\n    animate(ctx) {\n        this.drawBird(ctx);\n    }\n\n    drawBird(ctx) {\n        ctx.fillStyle = \"yellow\";\n        ctx.fillRect(this.pos.width, this.pos.height, 40, 30);\n    }\n\n    move() {\n        this.velocity += this.y\n        this.velocity += 0.5 // for gravity\n    }\n}\n\n//# sourceURL=webpack:///./src/bird.js?");
 
 /***/ }),
 
