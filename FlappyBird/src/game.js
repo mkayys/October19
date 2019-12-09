@@ -6,6 +6,10 @@ export default class FlappyBird {
     this.ctx = canvas.getContext("2d");
     this.dimensions = { width: canvas.width, height: canvas.height };
     this.animate = this.animate.bind(this);
+    this.click = this.click.bind(this);
+    
+    canvas.addEventListener('mousedown', this.click);
+
     this.restart();
     this.play();
   }
@@ -29,8 +33,11 @@ export default class FlappyBird {
     this.running = true;
     this.animate();
   }
-
+  
   click() {
-    
+    if (!this.running) {
+      this.play();
+    }
+    this.bird.flap();
   }
 }

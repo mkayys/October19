@@ -30,6 +30,5 @@ export default class Bird {
 
     flap() {
         this.velocity = CONSTANTS.FLAP_SPEED;
-
     }
 }
