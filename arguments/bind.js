@@ -34,7 +34,7 @@ Function.prototype.myBind = function(...bindArgs) {
     let ctx = bindArgs.shift();
     let that = this;
     return function(...callArgs) {
-        that.apply(ctx, bindArgs.concat(callArgs))
+        return that.apply(ctx, bindArgs.concat(callArgs))
     }
 }
 
