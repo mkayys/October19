@@ -10,14 +10,14 @@
 // }
 
 // with rest operator
-// function sum(...args) {
-//     let sum = 0;
-//     for(let i = 0; i < args.length; i++) {
-//         sum += args[i];
-//     }
+function sum(...args) {
+    let sum = 0;
+    for(let i = 0; i < args.length; i++) {
+        sum += args[i];
+    }
 
-//     return sum;
-// }
+    return sum;
+}
 
 console.log(sum(1, 2, 3, 4)); // 10
 console.log(sum(1, 2, 3, 4, 5)); // 15
