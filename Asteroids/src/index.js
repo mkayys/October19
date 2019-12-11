@@ -1,6 +1,8 @@
 console.log('Webpack is working!')
 
 const MovingObject = require("./moving_object.js");
+const Asteroid = require("./asteroid");
+const Game = require("./game");
 
 window.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('game-canvas');
@@ -12,6 +14,9 @@ window.addEventListener('DOMContentLoaded', () => {
         radius: 5,
         color: "#00FF00"
     });
+
+    window.Asteroid = Asteroid;
+    window.Game = Game;
 
     window.ctx = ctx;
 })
