@@ -21,6 +21,18 @@ class View {
 
   makeMove($square) {
     $square.html(`${this.game.currentPlayer}`);
+    $square.addClass('selected');
+    if (this.game.isOver()) {
+      // console.log(this.game.isOver())
+      if (this.game.winner()) {
+        let winner = this.game.currentPlayer;
+        alert(`${winner.toUpperCase()} WON!`);
+      } else {
+        alert("It's a draw!");
+      }
+
+      this.endGame();
+    }
   }
 
   setupBoard() {
@@ -36,6 +48,15 @@ class View {
       }
     }
 
+  }
+
+
+  endGame() {
+    $('.box').each((i, li) => {
+      let $li = $(li);
+      $li.off('click');
+    })
+    
   }
 }
 

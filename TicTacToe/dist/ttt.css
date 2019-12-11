@@ -13,9 +13,22 @@
     width: 200px;
     border: 2px solid black;
     background-color: #808000;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .box:hover {
     background-color: #7F0000;
     cursor: pointer;
+}
+
+.selected {
+    background-color: #FFE34C;
+}
+
+.selected:hover {
+    background-color: #FFE34C;
+    cursor: not-allowed;
 }
