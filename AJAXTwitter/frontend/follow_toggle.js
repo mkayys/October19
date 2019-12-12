@@ -1,3 +1,5 @@
+const ApiUtil = require('./api_util');
+
 class FollowToggle {
     constructor(el) {
         this.$el = $(el);
@@ -16,24 +18,30 @@ class FollowToggle {
 
     handleClick(e) {
         e.preventDefault();
-        let method;
+        // let method;
         if (this.followState === "unfollowed") {
-            method = 'post';
+            // method = 'post';
+            this.followState = "following";
+            this.render();
+            ApiUtil.followUser(this.userId).then(res => {
+                this.followState = "followed";
+                // this.toggleState();
+                // console.log(this.followState)
+                this.render();
+            });
         } else {
             // console.log('i should be here')
-            method = 'delete'
+            this.followState = "unfollowing";
+            this.render();
+            ApiUtil.unfollowUser(this.userId).then(res => {
+                this.followState = "unfollowed";
+                // this.toggleState();
+                // console.log(this.followState)
+                this.render();
+            });
         }
 
-        $.ajax({
-            method: method,
-            url: `/users/${this.userId}/follow`,
-            dataType: 'JSON'
-        }).then(res => {
-            
-            this.toggleState();
-            // console.log(this.followState)
-            this.render();
-        });
+        
     }
 
     toggleState() {
@@ -47,9 +55,17 @@ class FollowToggle {
 
     render() {
         if (this.followState === "followed") {
+            this.$el.prop('disabled', false);
             this.$el.html('Unfollow!');
-        } else {
+        } else if (this.followState === "unfollowed") {
+            this.$el.prop('disabled', false);
             this.$el.html('Follow!')
+        } else if (this.followState === "following") {
+            this.$el.prop('disabled', true);
+            this.$el.html('following...!')
+        } else {
+            this.$el.prop('disabled', true);
+            this.$el.html('unfollowing...!')
         }
     }
 }
