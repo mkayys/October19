@@ -9,7 +9,7 @@ class View {
   bindEvents() {
     $('.box').each((i, li) => {
       let $li = $(li);
-      $li.on('click', () => {
+      $li.on('click', (e) => {
         // console.log($li);
         let pos = $li.data('pos');
         // console.log(pos);
