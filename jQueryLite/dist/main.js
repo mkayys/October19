@@ -86,14 +86,25 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/dom_node_collection.js":
+/*!************************************!*\
+  !*** ./src/dom_node_collection.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("class DOMNodeCollection {\n    constructor(arr) {\n        this.htmlCollection = arr;\n    }\n}\n\nmodule.exports = DOMNodeCollection;\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("const $l = function(el) {\n    let nodeList = document.querySelectorAll(el);\n    let nodeArr = Array.from(nodeList);\n}\n\nwindow.$l = $l;\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const DOMNodeCollection = __webpack_require__(/*! ./dom_node_collection */ \"./src/dom_node_collection.js\");\n\nconst $l = function(el) {\n    if (el instanceof HTMLElement) {\n        let arr = [el];\n        return new DOMNodeCollection(arr);\n    } else {\n\n        let nodeList = document.querySelectorAll(el);\n        let nodeArr = Array.from(nodeList);\n        return new DOMNodeCollection(nodeArr);\n    }\n}\n\nwindow.$l = $l;\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
