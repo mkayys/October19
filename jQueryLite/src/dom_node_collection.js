@@ -20,6 +20,26 @@ class DOMNodeCollection {
             ele.innerHTML = "";
         }
     }
+
+    append(args) {
+        for (let i = 0; i < this.htmlCollection.length; i++) {
+            let node = this.htmlCollection[i];
+            if(args instanceof DOMNodeCollection) {
+                for(let j = 0; j < args.length; j++) {
+                    let arg = args[i];
+                    node.innerHTML += arg.outerHTML;
+                }
+            } else if (args instanceof HTMLElement) {
+                node.innerHTML += args.outerHTML;
+            } else {
+                node.innerHTML += args;
+            }
+        }
+    }
+
+    attr(ele) {
+        
+    }
 }
 
 module.exports = DOMNodeCollection;
