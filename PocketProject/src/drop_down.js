@@ -34,3 +34,26 @@ const attachDogLinks = function() {
 }
 
 attachDogLinks();
+
+const handleEnter = function() {
+  let nav = document.querySelector('.drop-down-dog-nav');
+  let liArr = Array.from(document.querySelectorAll('.dog-link'));
+  nav.addEventListener('mouseenter', () => {
+    for(let i=0; i < liArr.length; i++) {
+      liArr[i].classList.add('show');
+    }
+  })
+}
+
+const handleLeave = function() {
+  let nav = document.querySelector('.drop-down-dog-nav');
+  let liArr = Array.from(document.querySelectorAll('.dog-link'));
+  nav.addEventListener('mouseleave', () => {
+    for (let i = 0; i < liArr.length; i++) {
+      liArr[i].classList.remove('show');
+    }
+  })
+};
+
+handleEnter();
+handleLeave();
