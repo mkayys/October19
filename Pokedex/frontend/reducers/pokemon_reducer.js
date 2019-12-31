@@ -3,7 +3,7 @@ import { RECEIVE_ALL_POKEMON } from '../actions/pokemon_actions';
 const pokemonReducer = (state = {}, action) => {
     Object.freeze(state);
     let nextState = {};
-
+    debugger
     switch (action.type) {
         case RECEIVE_ALL_POKEMON:
             // debugger
@@ -15,7 +15,7 @@ const pokemonReducer = (state = {}, action) => {
             // nextState = merge({}, state, action.pokemon);
             // return nextState;
 
-            return Object.assign(state, nextState, action.pokemon.pokemon)
+            return action.pokemon
         default:
             return state;
     }
