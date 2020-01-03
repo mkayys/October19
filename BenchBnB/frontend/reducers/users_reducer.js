@@ -1,13 +1,6 @@
-import {
-    RECEIVE_CURRENT_USER,
-    LOGOUT_CURRENT_USER,
-} from '../actions/session_actions';
 
-const _nullUser = Object.freeze({
-    currentUserId: null
-});
 
-const sessionReducer = (state = _nullUser, action) => {
+const usersReducer = (state = {}, action) => {
     Object.freeze(state);
 
     switch (action.type) {
@@ -20,4 +13,4 @@ const sessionReducer = (state = _nullUser, action) => {
     }
 };
 
-export default sessionReducer;
+export default usersReducer;
