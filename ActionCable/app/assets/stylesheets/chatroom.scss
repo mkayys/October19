@@ -2,13 +2,17 @@
   margin: 2px;
   padding: 5px;
 }
+
 li {
-  list-style: decimal;
+  list-style: none;
+  border: 1px solid lavender;
 }
+
 .chatroom-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    font-family: 'Cinzel', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .message-list {
   overflow-y: scroll;
@@ -23,7 +27,18 @@ li {
 }
 
 .chatroom-title {
-    font-family: 'Cinzel', serif;
+    
     font-size: 15px;
     font-weight: bold;
+}
+
+.chat-button {
+    
+}
+
+.chat-button:hover {
+    color: red;
+    border-radius: 12px;
+    background-color: black;
+    cursor: pointer;
 }

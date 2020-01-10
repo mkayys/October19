@@ -22,12 +22,13 @@ class MessageForm extends React.Component {
             <div>
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     <input
+                        className='chat-message'
                         type="text"
                         value={this.state.body}
                         onChange={this.update("body")}
                         placeholder="Type message here"
                     />
-                    <input type="submit" />
+                    <input className="chat-button" type="submit" value="Enter"/>
                 </form>
             </div>
         );
