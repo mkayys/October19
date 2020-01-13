@@ -32,12 +32,12 @@ li {
     font-weight: bold;
 }
 
-.chat-button {
-    
+.chat-message:focus {
+    color: red;
 }
 
 .chat-button:hover {
-    color: red;
+    color: white;
     border-radius: 12px;
     background-color: black;
     cursor: pointer;
