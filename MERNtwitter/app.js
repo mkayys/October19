@@ -16,7 +16,8 @@ app.get("/", (req, res) => res.send("hi World"));
 
 const port = process.env.PORT || 5000;
 
-app.use("/api/users", users);
+
+// app.use("/api/users", users);
 app.use("/api/tweets", tweets);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
