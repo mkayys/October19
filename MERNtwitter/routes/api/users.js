@@ -4,6 +4,8 @@ const router = express.Router();
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
+const bcrypt = require('bcryptjs');
+const User = require('../../models/User');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
