@@ -6,6 +6,7 @@ const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const tweets = require("./routes/api/tweets");
 const bodyParser = require('body-parser');
+const User = require('./models/User');
 
 mongoose
     .connect(db, { useNewUrlParser: true })
@@ -13,7 +14,15 @@ mongoose
     .catch(err => console.log(err));
 
 
-app.get("/", (req, res) => res.send("hi World"));
+app.get("/", (req, res) => {
+    const user = new User({
+        handle: 'rach',
+        email: 'rach@chinohills',
+        password: 'password'
+    });
+    user.save()
+    res.send("hi World")
+});
 
 const port = process.env.PORT || 5000;
 
