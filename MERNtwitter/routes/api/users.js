@@ -24,15 +24,31 @@ router.post('/register', (req, res) => {
                 return res.status(400).json(errors);
             } else {
                 const newUser = new User({
-                    name: req.body.name,
+                    handle: req.body.handle,
                     email: req.body.email,
                     password: req.body.password
+                })
+
+                // newUser.save()
+                //     .then(user => res.send(user))
+                //     .catch(err => res.send(err))
+
+                // first argument: how many rounds of salting
+                // second argument: callback for when we finish salting
+                bcrypt.genSalt(10, (err, salt) => {
+                    bcrypt.hash(newUser.password, salt, (err, hash) => {
+                        if (err) throw err;
+                        newUser.password = hash;
+                        newUser.save()
+                            .then(user => res.json(user))
+                            .catch(err => console.log(err))
+                    })
                 })
             }
         })
 });
 
-
+ 
 router.post('/login', (req, res) => {
     const { errors, isValid } = validateLoginInput(req.body);
 
