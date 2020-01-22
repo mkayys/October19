@@ -7,7 +7,13 @@ const validateLoginInput = require('../../validation/login');
 const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
 
+const keys = require("../../config/keys");
+const jwt = require('jsonwebtoken');
+
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
+
+
+
 
 router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -70,7 +76,21 @@ router.post('/login', (req, res) => {
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
-                        res.json({ msg: 'Success' });
+                        // res.json({ msg: 'Success' });
+                        const payload = {
+                            id: user.id,
+                            handle: user.handle,
+                            email: user.email
+                        }
+
+                        jwt.sign(payload, keys.secretOrKey, 
+                            {expiresIn: 3600},
+                            (err, token) => {
+                                res.json({
+                                    success: true,
+                                    token: "Bearer " + token
+                                })
+                            })
                     } else {
                         // And here:
                         errors.password = 'Incorrect password'
